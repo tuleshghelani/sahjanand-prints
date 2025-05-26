@@ -41,30 +41,32 @@ export class HomeComponent implements OnInit {
   }
 
   private setupStructuredData() {
-    const structuredData = {
-      '@context': 'https://schema.org',
-      '@type': 'PrintingService',
-      name: 'Premium Printing Services',
-      description: 'Professional printing services including brochures, catalogs, stickers, stationery, box printing, offset printing, CMYK printing, and UV printing.',
-      offers: {
-        '@type': 'Offer',
-        itemOffered: [
-          { '@type': 'Service', name: 'Company Brochures' },
-          { '@type': 'Service', name: 'Products Catalogue' },
-          { '@type': 'Service', name: 'Sticker Label' },
-          { '@type': 'Service', name: 'Office Stationery' },
-          { '@type': 'Service', name: 'Box Printing' },
-          { '@type': 'Service', name: 'Offset Printing' },
-          { '@type': 'Service', name: 'CMYK Printing' },
-          { '@type': 'Service', name: 'UV Printing' }
-        ]
-      }
-    };
+    if (isPlatformBrowser(this.platformId)) {
+      const structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'PrintingService',
+        name: 'Premium Printing Services',
+        description: 'Professional printing services including brochures, catalogs, stickers, stationery, box printing, offset printing, CMYK printing, and UV printing.',
+        offers: {
+          '@type': 'Offer',
+          itemOffered: [
+            { '@type': 'Service', name: 'Company Brochures' },
+            { '@type': 'Service', name: 'Products Catalogue' },
+            { '@type': 'Service', name: 'Sticker Label' },
+            { '@type': 'Service', name: 'Office Stationery' },
+            { '@type': 'Service', name: 'Box Printing' },
+            { '@type': 'Service', name: 'Offset Printing' },
+            { '@type': 'Service', name: 'CMYK Printing' },
+            { '@type': 'Service', name: 'UV Printing' }
+          ]
+        }
+      };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(structuredData);
+      document.head.appendChild(script);
+    }
   }
 
   ngOnInit() {
