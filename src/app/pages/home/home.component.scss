@@ -2,14 +2,13 @@
 @import '../../../styles/mixins';
 @import '../../../styles.scss';
 
-$dark-bg: #181c23;
-$dark-bg-alt: #232834;
-$card-bg: #232834;
-$primary: #fff;
-$secondary: #90caf9;
-$text-main: #e0e0e0;
-$text-secondary: #b0b8c1;
-$accent: #90caf9;
+// Using global color variables instead of hardcoded values
+$dark-bg: $secondary-dark;
+$dark-bg-alt: $secondary;
+$card-bg: $secondary-light;
+$text-main: $text-white;
+$text-secondary: $neutral-light;
+$accent: $primary-light;
 
 .home-container {
   width: 100%;
@@ -27,7 +26,7 @@ $accent: #90caf9;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: $primary;
+  color: $text-white;
   padding: 4rem 1rem 2rem 1rem;
 
   .hero-content {
@@ -39,7 +38,7 @@ $accent: #90caf9;
       font-weight: 700;
       margin-bottom: 1rem;
       letter-spacing: 1px;
-      color: $primary;
+      color: $text-white;
     }
 
     p {
@@ -60,7 +59,7 @@ $accent: #90caf9;
     margin-bottom: 2.5rem;
     font-size: 2.2rem;
     font-weight: 700;
-    color: $primary;
+    color: $text-white;
     letter-spacing: 1px;
   }
 
@@ -79,17 +78,18 @@ $accent: #90caf9;
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
     text-align: center;
-    border: 1px solid #232834;
+    border: 1px solid $secondary-light;
 
     &:hover {
       transform: translateY(-8px) scale(1.03);
       box-shadow: 0 8px 32px rgba(0,0,0,0.28);
       background: $dark-bg-alt;
+      border-color: $primary-lighter;
     }
 
     .service-icon {
       font-size: 2.5rem;
-      color: $accent;
+      color: $primary-light;
       margin-bottom: 1rem;
     }
 
@@ -97,7 +97,7 @@ $accent: #90caf9;
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 0.7rem;
-      color: $primary;
+      color: $text-white;
     }
 
     p {
@@ -118,7 +118,7 @@ $accent: #90caf9;
     margin-bottom: 2.5rem;
     font-size: 2rem;
     font-weight: 700;
-    color: $primary;
+    color: $text-white;
   }
 
   .features-grid {
@@ -135,16 +135,18 @@ $accent: #90caf9;
     box-shadow: 0 2px 12px rgba(0,0,0,0.18);
     padding: 2rem 1rem;
     text-align: center;
-    transition: box-shadow 0.3s, background 0.3s;
+    transition: box-shadow 0.3s, background 0.3s, border 0.3s;
+    border: 1px solid transparent;
 
     &:hover {
       box-shadow: 0 6px 24px rgba(0,0,0,0.28);
       background: $dark-bg;
+      border-color: $primary-lighter;
     }
 
     i {
       font-size: 2.2rem;
-      color: $accent;
+      color: $primary-light;
       margin-bottom: 0.7rem;
     }
 
@@ -152,7 +154,7 @@ $accent: #90caf9;
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: $primary;
+      color: $text-white;
     }
 
     p {
@@ -166,11 +168,11 @@ $accent: #90caf9;
 .contact-section {
   padding: 4rem 1rem 2rem 1rem;
   background: $dark-bg;
-  color: $primary;
+  color: $text-white;
   text-align: center;
 
   .section-title {
-    color: $primary;
+    color: $text-white;
     margin-bottom: 1.5rem;
     font-size: 2rem;
     font-weight: 700;
@@ -192,17 +194,19 @@ $accent: #90caf9;
 .cta-button {
   display: inline-block;
   padding: 0.9rem 2rem;
-  background: $accent;
-  color: $dark-bg;
+  background: $primary;
+  color: $text-white;
   text-decoration: none;
   border-radius: 6px;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
+  border: 2px solid $primary;
 
   &:hover {
-    background: lighten($accent, 10%);
-    color: $dark-bg;
+    background: $primary-light;
+    color: $text-white;
+    transform: translateY(-3px);
   }
 }
 
